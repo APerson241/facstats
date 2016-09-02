@@ -34,16 +34,12 @@ def yield_user_fac_contribs(username):
     params = {"action": "query", "list": "usercontribs", "ucuser": username,
               "ucnamespace": "4", "ucprop": "title|timestamp", "uclimit": CHECK_LIMIT}
     request = api.APIRequest(site, params)
+    result = request.query()
 
-    edit_count = 0
-    for each_result in request.queryGen():
-        for each_edit in each_result["query"]["usercontribs"]:
-            title, timestamp = each_edit["title"], each_edit["timestamp"]
-            edit_count += 1
-            if edit_count > CHECK_LIMIT:
-                raise StopIteration
-            if "Featured article candidates/" in title:
-                yield title, timestamp
+    for each_edit in each_result["query"]["usercontribs"]:
+        title, timestamp = each_edit["title"], each_edit["timestamp"]
+        if "Featured article candidates/" in title:
+            yield title, timestamp
 
 def format_user_fac_contribs(username):
     html_result = "<ul>"
@@ -59,7 +55,7 @@ def format_user_fac_contribs(username):
                           reverse=True)
 
     if len(all_contribs):
-        return "<ul>" + "\n".join("<li><a href='https://en.wikipedia.org/wiki/{0}' title='{0} on English Wikipedia'>{1}</a> (last edited {2})</li>".format(a, a.replace("Wikipedia:Featured article candidates/", ""), b.replace("T", " at ").replace("Z", "")) for a, b in all_contribs) + "</ul>"
+        return "<ul>" + "\n".join("<li><a href='https://en.wikipedia.org/wiki/{0}' title='{0} on English Wikipedia'>{1}</a> (last edited {2})</li>".format(a.encode("utf-8"), a.encode("utf-8").replace("Wikipedia:Featured article candidates/", ""), b.replace("T", " at ").replace("Z", "")) for a, b in all_contribs) + "</ul>"
     else:
         return "<i>No FAC contributions found.</i>"
 
