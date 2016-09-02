@@ -1,7 +1,6 @@
-#!/usr/bin/env python3.4
 import os
 import sys
-sys.path.append('.' + '.' if 'tests/' not in __file__ else '')
+sys.path.append('./facstats' + '.' if 'tests/' not in __file__ else '')
 import app
 import unittest
 

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Error!{% endblock %}
+{% block content %}
+<p><a href="{{ url_for('index') }}">&larr; New search</a></p>
+<h1>An error occurred!</h1>
+<p style="font-size: 80%"><a href="https://tools.wmflabs.org/apersonbot/">Tools</a> &gt; <a href="{{ url_for('index') }}">FAC Stats</a> &gt; <b>Error</b></p>
+<p>An error occurred while trying to do... whatever it was you wanted to do. Some tips:</p>
+<ul>
+  <li>If you were trying to access the FAC contributions of a given user, make sure you typed the username correctly.</li>
+  <li>If you're certain there was some error, feel free to <a href="https://en.wikipedia.org/wiki/User_talk:Enterprisey" title="Enterprisey's talk page on the English Wikipedia">contact the tool's author</a> or <a href="https://github.com/APerson241/facstats/issues" title="Issues on GitHub">report an error on GitHub</a>.</li>
+</ul>
+<p>Try <a href="{{ url_for('index') }}">another search</a>?</p>
+{% endblock %}

@@ -4,14 +4,14 @@
 <h1>FAC Stats</h1>
 <p style="font-size: 80%"><a href="https://tools.wmflabs.org/apersonbot/">Tools</a> &gt; <b>FAC Stats</b></p>
 <p>This tool analyzes contributions an editor has made to <a href="https://en.wikipedia.org/wiki/WP:FAC" title="WP:FAC">FAC</a>.</p>
-<form action="{{ url_for('index') }}" method="get">
+<form action="{{ url_for('contribs.show') }}" method="get">
   <table>
     <tr>
       <th><label for="username">Username</label></th>
       <td><input type="text" id="username" name="username" required /></td>
     </tr>
     <tr>
-      <td><input type="submit" /></td>
+      <td><input type="submit" value="List FAC contribs"/></td>
     </tr>
   </table>
 </form>

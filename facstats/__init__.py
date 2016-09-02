@@ -1,11 +1,13 @@
-#!/usr/bin/env python3.4
 import os
 from flask import Flask, render_template, request
+
+from facstats.contribs import contribs
 
 DEBUG = True
 DEFAULT_PORT = 5000
 
 app = Flask(__name__)
+app.register_blueprint(contribs, url_prefix='/contribs')
 
 @app.route('/')
 def index():
