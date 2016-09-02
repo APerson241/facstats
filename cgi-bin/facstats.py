@@ -36,7 +36,7 @@ def yield_user_fac_contribs(username):
     request = api.APIRequest(site, params)
     result = request.query()
 
-    for each_edit in each_result["query"]["usercontribs"]:
+    for each_edit in result["query"]["usercontribs"]:
         title, timestamp = each_edit["title"], each_edit["timestamp"]
         if "Featured article candidates/" in title:
             yield title, timestamp
