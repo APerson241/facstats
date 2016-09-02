@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>FAC Stats - Home</title>
+    <link href="static/base.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>FAC Stats</h1>
+    <p style="font-size: 80%"><a href="https://tools.wmflabs.org/apersonbot/">Tools</a> &gt; <b>FAC Stats</b></p>
+    <p>This tool analyzes contributions an editor has made to <a href="https://en.wikipedia.org/wiki/WP:FAC" title="WP:FAC">FAC</a>.</p>
+    <form action="cgi-bin/facstats.py" method="get">
+      <table>
+	<tr>
+	  <th><label for="username">Username</label></th>
+	  <td><input type="text" id="username" name="username" required /></td>
+	</tr>
+	<tr>
+	  <td><input type="submit" value="List FAC contribs"/></td>
+	</tr>
+      </table>
+    </form>
+    <footer>
+      <a href="https://en.wikipedia.org/wiki/User:Enterprisey" title="Enterprisey's user page on the English Wikipedia">Enterprisey</a> (<a href="https://en.wikipedia.org/wiki/User_talk:Enterprisey" title="Enterprisey's talk page on the English Wikipedia">talk!</a>) &middot; <a href="https://github.com/APerson241/facstats" title="Source code on GitHub">Source code</a> &middot; <a href="https://github.com/APerson241/facstats/issues" title="Issues on GitHub">Issues</a>
+    </footer>
+  </body>
+</html>
